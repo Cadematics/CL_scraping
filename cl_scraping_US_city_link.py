@@ -1,12 +1,12 @@
-##########
-# This code dowlonads the html file of the page:
+#########################################################################################
+# This code dowlonads the html file of the page: https://www.craigslist.org/about/sites
 # Extract city name and its link
+# Save the result to a sqlite databse called: "cl_scraping_db.sqlite"
 # save it to city_link_result.txt file
-#########
+#########################################################################################
 
 
-##################################################################################################
-# import liraries
+# Import liraries
 import re
 import urllib.request
 import urllib
@@ -18,12 +18,14 @@ import lxml
 import time
 import csv
 import sqlite3
-##################################################################################################
+
+
+# Set variables
 cl_root_url= "https://www.craigslist.org/about/sites"
 result_file_path = "state_city_link.csv"
 database = 'cl_scraping_db.sqlite'
 s_c_l_table = 'state_city_link_table'
-##################################################################################################
+
 
 # The donwload function
 def download(url, user_agent='wswp', num_retries=2, charset='utf-8', proxy=None):
@@ -106,7 +108,6 @@ def download_state_city_link_to_file_and_db(url,file_path):
             f.write(state+","+city+","+link+"\n")
             # Write to the database
             c.execute("INSERT INTO state_city_link_table (state_col, city_col, link_col) VALUES (?, ?,  ?)",(state, city, link))
-            print (state+","+city+","+link+"\n")
     f.close()
     # Commit and close the database connection
     conn.commit()
@@ -114,31 +115,11 @@ def download_state_city_link_to_file_and_db(url,file_path):
 
 
 
+if __name__ == '__main__':
 
-create_state_city_link_table_and_col(database, s_c_l_table)
+    create_state_city_link_table_and_col(database, s_c_l_table)
 
-download_state_city_link_to_file_and_db(cl_root_url,  result_file_path)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    download_state_city_link_to_file_and_db(cl_root_url,  result_file_path)
 
 
 
