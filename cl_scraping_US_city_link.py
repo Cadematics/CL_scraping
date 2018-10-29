@@ -119,26 +119,6 @@ create_state_city_link_table_and_col(database, s_c_l_table)
 
 download_state_city_link_to_file_and_db(cl_root_url,  result_file_path)
 
-# conn = sqlite3.connect(database)
-# c = conn.cursor()
-
-
-
-# c.execute("SELECT * FROM state_city_link_table")
-# rows = c.fetchall()
-
-# for row in rows:
-#     state = row[0]
-#     city = row[1]
-#     base_url = row[2]
-
-
-#     search_link(base_url, "python+cad", state, city)
-
-# conn.commit()
-# conn.close()
-
-
 
 
 
