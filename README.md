@@ -1,7 +1,7 @@
 # CL_scraping
 scraping CL
 
-This python prgram scrapes city names and their CL link, then saves it to a csv file and a database.
+This python prgram scrapes city names and their CL link, then saves them to a csv file and a database.
 
 
 Python version = Python 3.6.4 :: Anaconda, Inc.
